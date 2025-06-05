@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blinku K-pop Performance Competition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Comic Neue', cursive;
+    }body {
+  background: linear-gradient(to right, #d0f0ff, #b2eaff);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  color: #1b6ca8;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #1b6ca8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #144f7d;
+}
+
+.thank-you {
+  display: none;
+  font-size: 16px;
+  color: green;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Blinku K-pop Performance Competition 🎤</h1>
+    <form id="kpopForm" action="https://formspree.io/f/mwkgybbg" method="POST" enctype="multipart/form-data">
+      <label for="channel">Channel Name</label>
+      <input type="text" name="channel" id="channel" required><label for="email">Email</label>
+  <input type="email" name="email" id="email" required>
+
+  <label for="video">Submit Your Video</label>
+  <input type="file" name="video" id="video" accept="video/*" required>
+
+  <button type="submit">Submit</button>
+  <div class="thank-you" id="thankYouMsg">Thank you for submitting! 🎉</div>
+</form>
+
+  </div>  <script>
+    const form = document.getElementById('kpopForm');
+    const thankYouMsg = document.getElementById('thankYouMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          thankYouMsg.style.display = 'block';
+          form.reset();
+        } else {
+          alert(''succesfuly sumbit);
+        }
+      })
+      .catch(error => {
+        alert('Something went wrong. Please try again later.');
+      });
+    });
+  </script></body>
+  <form action="https://formspree.io/f/YOURCODE" method="POST" ...>
+</html>
